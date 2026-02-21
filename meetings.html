@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Engineering Club | Meetings</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<nav class="navbar">
+  <div class="logo">Engineering Club</div>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="meetings.html" class="active">Meetings</a></li>
+    <li><a href="info.html">Information</a></li>
+    <li><a href="members.html">Members</a></li>
+    <li><a href="gallery.html">Gallery</a></li>
+  </ul>
+</nav>
+
+<main class="page">
+
+  <h1>Meeting Information</h1>
+
+  <!-- NEXT MEETING -->
+  <div class="container-wrapper">
+  <div class="container">
+  <section class="info-box copy-box" onclick="copyMeetingInfo()">
+    <h2>Next Meeting</h2>
+
+    <p id="meeting-info">
+      <strong>Date</strong>: Wednesady, 2/18<br>
+      <strong>Time</strong>: 3:30 - 4:30<br>
+      <strong>Location</strong>: Mrs.Best's room<br>
+      <strong>Current Unit</strong>: Wooden Airplanes
+    </p>
+  </section>
+
+  <!-- PAST MEETINGS -->
+  <section class="info-box">
+    <h2>Past Meetings</h2>
+    <p>
+      • <strong>Wooden airplanes</strong> — Learned the basics of how a plane flies and <br>
+      • <strong>Bridges</strong> — Stength tested bridge designs<br>
+      • <strong>Bridges</strong> — Each group finished biulding their bridge<br>
+      • <strong>Bridges meetings 2-3</strong> — Formed groups and started design and construction of wooden bridges<br>
+      • <strong>Bridges</strong> — First meeting. Everyone learned the basics of bridges and organized into groups<br>
+    </p>
+  </section>
+</div>
+</div>
+<footer>
+  <p>© 2026 Engineering Club | South Point</p>
+</footer>
+</main>
+
+<!-- SCRIPT -->
+<script>
+  function copyMeetingInfo() {
+    const text = document.getElementById("meeting-info").innerText;
+    navigator.clipboard.writeText(text);
+    alert("Next meeting info copied to clipboard!");
+  }
+</script>
+
+</body>
+</html>
