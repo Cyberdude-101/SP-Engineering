@@ -244,7 +244,7 @@ body {
 @media (max-width: 768px) {
   .gallery-pic {
     flex-wrap: wrap;
-    width: 275%;
+    width: 175%;
   }
 }
 
