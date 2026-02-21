@@ -137,6 +137,7 @@ body {
  display: flex;
  flex-direction: column;
  width: 20%;
+  flex-grow: 1;
 }
 .footer {
   font-size: 22px;
