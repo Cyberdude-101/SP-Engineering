@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Engineering Club</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<nav class="navbar">
+  <div class="logo">Engineering Club</div>
+  <ul class="nav-links">
+    <li><a href="index.html" class="active">Home</a></li>
+    <li><a href="meetings.html">Meetings</a></li>
+    <li><a href="info.html">Information</a></li>
+    <li><a href="members.html">Members</a></li>
+    <li><a href="gallery.html">Gallery</a></li>
+  </ul>
+</nav>
+
+<header class="hero-text-only">
+  <h1 class="hero-title">Engineering Club</h1>
+<p class="hero-tagline" id="typing-text"></p>
+</header>
+
+<section class="home-buttons">
+  <a href="meetings.html" class="home-btn">Next Meeting</a>
+  <a href="info.html" class="home-btn">Information</a>
+  <a href="members.html" class="home-btn">Members</a>
+  <a href="gallery.html" class="home-btn">Gallery</a>
+</section>
+<footer class="footer">
+  <a href="https://mail.google.com/mail/u/0/?tab=rm&ogbl#inbox?compose=GTvVlcSGMGCVfZvTQTxPgmzVpXtBKKpxRthvQzqGBfvCrGRbnVKnBRJdWJwvFhMkCvwpVpPBCnsnL">Contact Us</a>
+</footer>
+<script>
+  const text = "Design. Build. Innovate.";
+  const speed = 80;
+  let index = 0;
+
+  const typingEl = document.getElementById("typing-text");
+
+  function typeText() {
+    if (index < text.length) {
+      typingEl.textContent += text.charAt(index);
+      index++;
+      setTimeout(typeText, speed);
+    } else {
+      // hide the cursor when typing finishes
+      typingEl.classList.add("cursor-hidden");
+    }
+  }
+
+  window.onload = typeText;
+</script>
+</body>
+</html>
