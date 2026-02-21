@@ -136,7 +136,7 @@ body {
 .gallery-pic {
  display: flex;
  flex-direction: column;
- width: 200%;
+ width: 20%;
 }
 .footer {
   font-size: 22px;
