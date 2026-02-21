@@ -116,6 +116,7 @@ body {
   width: 100%;
   column-gap: 30px;
   align-items: stretch;
+  column-count: 3;
 }
 .containerr {
   display: flex;
