@@ -113,7 +113,7 @@ body {
 }
 .container {
   display: flex;
-  width: 200%;
+  width: 100%;
   column-gap: 30px;
   align-items: stretch;
 }
@@ -244,6 +244,7 @@ body {
 @media (max-width: 768px) {
   .gallery-pic {
     flex-wrap: wrap;
+    width: 275%;
   }
 }
 
