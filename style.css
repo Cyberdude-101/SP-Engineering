@@ -262,3 +262,11 @@ html, body {
   overflow-x: hidden;
 }
 
+
+.containerrr {
+  display: flex;
+  width: 100%;
+  column-gap: 30px;
+  align-items: stretch;
+  flex-wrap: wrap;
+}
