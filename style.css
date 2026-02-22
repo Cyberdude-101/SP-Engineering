@@ -275,6 +275,6 @@ html, body {
 @media (max-width: 768px) {
   .containerrr {
     flex-direction: column;
-    width: 275%;
+    width: 100%;
   }
 }
