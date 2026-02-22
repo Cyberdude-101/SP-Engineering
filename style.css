@@ -270,3 +270,11 @@ html, body {
   align-items: stretch;
   flex-wrap: wrap;
 }
+
+
+@media (max-width: 768px) {
+  .containerrr {
+    flex-direction: column;
+    width: 275%;
+  }
+}
