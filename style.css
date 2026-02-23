@@ -272,7 +272,7 @@ html, body {
 @media (max-width: 768px) {
   .containerrr {
     flex-direction: column;
-    width: 200%;
+    width: 400%;
     display: flex;
   }
 }
