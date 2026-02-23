@@ -275,7 +275,7 @@ html, body {
 @media (max-width: 768px) {
   .gallery-pic {
     flex-direction: column;
-    width: 100%;
+    width: 50%;
     display: flex;
   }
 }
