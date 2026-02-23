@@ -136,11 +136,10 @@ body {
  width: 25%;
 }
 .gallery-pic {
- background: white;
  padding: 1.2rem;
  border-radius: 8px;
  margin-bottom: 2rem;
- border-left: 5px solid #000103;
+ border-left: 5px
  display: flex;
  flex-direction: column;
  width: 25%;
