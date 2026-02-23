@@ -279,3 +279,12 @@ html, body {
     display: flex;
   }
 }
+
+
+@media (max-width: 768px) {
+  .containerrr {
+    flex-direction: column;
+    width: 100%;
+    display: flex;
+  }
+}
