@@ -248,11 +248,7 @@ body {
     grid-template-columns: 1fr;
   }
 }
-@media (max-width: 768px) {
-  .gallery-pic {
-    flex-wrap: wrap;
-  }
-}
+
 
 
 
