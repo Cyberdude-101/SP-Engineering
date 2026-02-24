@@ -134,6 +134,7 @@ body {
  display: flex;
  flex-direction: column;
  width: 25%;
+  height: 250px
 }
 .gallery-pic {
  padding: 1.2rem;
