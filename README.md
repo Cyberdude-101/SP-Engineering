@@ -26,16 +26,36 @@ everyNWeeks:  2,              // every other week
 The site works out every meeting after that on its own, so the homepage never
 goes stale between updates. **You do not need to edit the site every two weeks.**
 
-Cancelling one? Add it to `skipDates` and the site jumps to the next one:
+### Changing one meeting
+
+Three different situations, three different fields. Pick the right one.
+
+**Cancelled** &mdash; no meeting that week, the site jumps to the next one:
 
 ```js
-skipDates: [
-  "2026-12-23",   // winter break
-],
+skipDates: [ "2026-12-23" ],
 ```
 
-Check the date against the schedule on the meetings page first &mdash; a date
-that was never a meeting day will not do anything.
+**Moved** &mdash; same week, different day. Left side is where it *would* have
+been, right side is where it went. Do not also add it to `skipDates`:
+
+```js
+reschedule: { "2026-09-09": "2026-09-10" },
+```
+
+**Extra** &mdash; a one-off that is not part of the pattern:
+
+```js
+extraDates: [ "2026-10-14" ],
+```
+
+Moved and extra dates get sorted into the right place automatically, even if
+you move a meeting earlier. A date that was never a meeting day will not do
+anything, so check it against the schedule on the meetings page first.
+
+**If the schedule shifts permanently** &mdash; you end up meeting on the
+opposite Wednesdays from now on &mdash; do not use these. Change `firstMeeting`
+to the new date and everything re-derives from there.
 
 At the end of the year the site stops showing dates and says so, rather than
 displaying something wrong.

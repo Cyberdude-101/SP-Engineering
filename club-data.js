@@ -17,18 +17,39 @@ const CLUB = {
   room:         "Mrs. Best's room (#105)",
   lastMeeting:  "2027-05-26",   // Stop showing dates after the year ends.
 
-  /* Dates we are NOT meeting even though the pattern says we would
-     (holidays, exam weeks, snow days). The site skips straight to the
-     next one. Add lines in this format:
+  /* ---- CHANGING A SINGLE MEETING ----
+     Three different things can happen. Pick the right one.
 
-         skipDates: [
-           "2026-12-23",   // winter break
-           "2027-03-31"    // testing week
-         ],
+     1. CANCELLED — no meeting that week, next one is as normal.
+
+            skipDates: [
+              "2026-12-23"    // winter break
+            ],
+
+     2. MOVED — same week, different day. Left side is the date it
+        WOULD have been, right side is where it went. Do NOT also put
+        it in skipDates; this replaces it.
+
+            reschedule: {
+              "2026-09-09": "2026-09-10"    // assembly, moved to Thursday
+            },
+
+     3. EXTRA — a one-off meeting that isn't part of the pattern
+        (build day before a competition, catch-up session).
+
+            extraDates: [
+              "2026-10-14"
+            ],
 
      Check the date against the schedule on the meetings page first —
-     a date that isn't a meeting day anyway will do nothing. */
-  skipDates: [],
+     a date that was never a meeting day will do nothing.
+
+     If the whole schedule shifts permanently (you end up meeting on
+     the opposite Wednesdays from now on), don't use these. Change
+     firstMeeting to the new date instead — everything re-derives. */
+  skipDates:  [],
+  reschedule: {},
+  extraDates: [],
 
   /* What we are building at the moment. Shows on the home page
      and the meetings page. Set to "" if you would rather not say. */

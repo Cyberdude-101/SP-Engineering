@@ -35,23 +35,48 @@
     return Math.round((midnight(b) - midnight(a)) / 86400000);
   }
 
-  /* Walk the every-other-Wednesday pattern forward, dropping any
-     date on the skip list, and return the next `count` meetings. */
-  function upcomingMeetings(count) {
+  /* Build every meeting date for the year:
+       1. walk the every-other-Wednesday pattern forward
+       2. drop anything on skipDates
+       3. move anything listed in reschedule to its new date
+       4. add any one-off extraDates
+     A moved or extra date can land out of order, so the list is
+     sorted and de-duplicated at the end rather than as we go. */
+  function allMeetingDates() {
     var out    = [];
     var cursor = parseDate(CLUB.firstMeeting);
-    var today  = midnight(new Date());
     var end    = CLUB.lastMeeting ? parseDate(CLUB.lastMeeting) : null;
     var skip   = CLUB.skipDates || [];
+    var moved  = CLUB.reschedule || {};
     var step   = (CLUB.everyNWeeks || 1) * 7;
     var guard  = 0;
 
-    while (out.length < count && guard++ < 400) {
+    while (guard++ < 400) {
       if (end && cursor > end) break;
-      if (cursor >= today && skip.indexOf(key(cursor)) === -1) out.push(new Date(cursor));
+      var k = key(cursor);
+      if (skip.indexOf(k) === -1) {
+        out.push(moved[k] ? parseDate(moved[k]) : new Date(cursor));
+      }
       cursor.setDate(cursor.getDate() + step);
     }
-    return out;
+
+    (CLUB.extraDates || []).forEach(function (d) { out.push(parseDate(d)); });
+
+    out.sort(function (a, b) { return a - b; });
+
+    var seen = {}, unique = [];
+    out.forEach(function (d) {
+      var k = key(d);
+      if (!seen[k] && (!end || d <= end)) { seen[k] = true; unique.push(d); }
+    });
+    return unique;
+  }
+
+  function upcomingMeetings(count) {
+    var today = midnight(new Date());
+    return allMeetingDates()
+      .filter(function (d) { return d >= today; })
+      .slice(0, count);
   }
 
   function longDate(d) {
