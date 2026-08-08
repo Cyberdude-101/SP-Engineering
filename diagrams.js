@@ -99,8 +99,49 @@ const DIAGRAMS = {
       <text class="dg-label" x="332" y="22">LIFT</text>
     </svg>`,
 
-  /* ---- 3D printing: the nozzle tracks back and forth while the
-     part builds up underneath it, one layer at a time. ---- */
+  /* ---- Code: lines of HTML typing themselves out. This one is plain
+     HTML rather than SVG — text revealing character by character is far
+     easier with a width animation than it is inside an SVG. ---- */
+  code: `
+    <div class="dg-code" role="img" aria-label="Lines of HTML being typed out one after another in an editor">
+      <div class="dg-code-head">
+        <span></span><span></span><span></span>
+        <em>index.html</em>
+      </div>
+      <div class="dg-code-body">
+        <span class="dg-line" style="animation-delay:0s"><i class="dg-tag">&lt;section</i> <i class="dg-attr">class</i>=<i class="dg-val">"club"</i><i class="dg-tag">&gt;</i></span>
+        <span class="dg-line" style="animation-delay:.6s">  <i class="dg-tag">&lt;h1&gt;</i>Engineering Club<i class="dg-tag">&lt;/h1&gt;</i></span>
+        <span class="dg-line" style="animation-delay:1.2s">  <i class="dg-tag">&lt;p&gt;</i>Everyone welcome.<i class="dg-tag">&lt;/p&gt;</i></span>
+        <span class="dg-line" style="animation-delay:1.8s"><i class="dg-tag">&lt;/section&gt;</i></span>
+      </div>
+    </div>`,
+
+  /* ---- Join: two bar magnets. North faces south, so they pull
+     together and snap. The field lines fade once contact is made. ---- */
+  magnets: `
+    <svg viewBox="0 0 640 132" role="img"
+         aria-label="Two bar magnets pulling together until they snap into contact, then drawing apart again">
+      <g class="dg-field">
+        <path d="M290,50 C316,26 356,26 382,50" />
+        <path d="M290,66 C316,58 356,58 382,66" />
+        <path d="M290,82 C316,106 356,106 382,82" />
+      </g>
+      <g class="dg-mag-l">
+        <rect class="dg-pole-s" x="146" y="42" width="70" height="48" />
+        <rect class="dg-pole-n" x="216" y="42" width="70" height="48" />
+        <text class="dg-pole-label dg-label-s" x="181" y="67">S</text>
+        <text class="dg-pole-label dg-label-n" x="251" y="67">N</text>
+      </g>
+      <g class="dg-mag-r">
+        <rect class="dg-pole-s" x="386" y="42" width="70" height="48" />
+        <rect class="dg-pole-n" x="456" y="42" width="70" height="48" />
+        <text class="dg-pole-label dg-label-s" x="421" y="67">S</text>
+        <text class="dg-pole-label dg-label-n" x="491" y="67">N</text>
+      </g>
+    </svg>`,
+
+  /* ---- 3D printing: kept for when the club gets a printer, but not
+     currently placed on any page. ---- */
   printer: `
     <svg viewBox="0 0 640 132" role="img"
          aria-label="A 3D printer nozzle moving back and forth above a part being built up layer by layer">

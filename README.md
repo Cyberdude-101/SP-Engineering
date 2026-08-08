@@ -69,7 +69,7 @@ Copy one block in the `projects` list, change the fields, put it at the top:
   title:   "Mousetrap Cars",
   term:    "This year",
   current: true,                 // true = "What we're working on"
-  diagram: "truss",              // truss | airfoil | printer | circuit | ""
+  diagram: "truss",              // see the list under "The animated diagrams"
   blurb:   "What we did and how it went.",
   photos:  [
     { file: "IMG_1234.jpeg", alt: "Short description of the photo" }
@@ -129,9 +129,20 @@ Drop one into any page:
 <div class="diagram" data-diagram="truss"></div>
 ```
 
-Options: `truss`, `airfoil`, `printer`, `circuit`. Add `diagram--hero` to the
-class for the large version. They all stop moving for anyone who has reduced
-motion switched on.
+| Name | What it shows | Where it is |
+| --- | --- | --- |
+| `truss` | A bridge flexing under load | Home hero, Bridges card |
+| `code` | HTML typing itself out | Home |
+| `circuit` | Current lighting an LED | Home |
+| `airfoil` | Airflow over a wing | Home, Airplanes card |
+| `gears` | Three meshing gears | Meetings |
+| `magnets` | Two magnets snapping together | Join |
+| `bolt` | A bolt turning through two plates | not used |
+| `printer` | A 3D printer building a part | not used &mdash; for when the club gets a printer |
+
+Add `diagram--hero` to the class for the large version, or `diagram--band`
+for the centred mid-page size. They all stop moving for anyone who has
+reduced motion switched on.
 
 ---
 
