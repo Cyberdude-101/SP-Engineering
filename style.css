@@ -191,7 +191,9 @@ a { color: var(--bone); }
 
 /* ---------- Diagram host ---------- */
 .diagram { width: 100%; }
-.diagram svg { display: block; width: 100%; height: auto; overflow: visible; }
+/* hidden, not visible — a cropped viewBox still paints the parts outside
+   it otherwise, and the airflow lines ran straight off the card. */
+.diagram svg { display: block; width: 100%; height: auto; overflow: hidden; }
 .diagram--hero { max-width: 760px; margin-top: clamp(1.5rem, 1rem + 2vw, 2.4rem); }
 .diagram--card { margin: .2rem 0 1rem; }
 .diagram--band { max-width: 620px; margin: 0 auto clamp(1.8rem, 1.4rem + 1.6vw, 2.6rem); }
@@ -251,7 +253,7 @@ a { color: var(--bone); }
   margin-left: .5rem; font-style: normal; font-family: var(--mono);
   font-size: .62rem; letter-spacing: .14em; text-transform: uppercase; color: var(--steel);
 }
-.dg-code-body { padding: .8rem .9rem; font-family: var(--mono); font-size: clamp(.66rem, .6rem + .28vw, .78rem); line-height: 1.75; }
+.dg-code-body { padding: .6rem .9rem .65rem; font-family: var(--mono); font-size: clamp(.66rem, .6rem + .28vw, .78rem); line-height: 1.55; }
 .dg-line { display: block; white-space: pre; overflow: hidden; width: 0; color: var(--bone); }
 .dg-line i { font-style: normal; }
 .dg-tag  { color: var(--red-text); }
@@ -331,7 +333,15 @@ a { color: var(--bone); }
 .build { background: var(--ground); padding: 1.5rem 1.6rem 1.7rem; }
 .build h3 { margin-bottom: .5rem; }
 .build p { color: var(--bone-dim); font-size: .95rem; }
-.build .diagram { margin-bottom: 1rem; }
+
+/* Fixed height with the drawing centred, so the headings line up across
+   all three cards however tall each individual diagram happens to be. */
+.build .diagram {
+  display: flex;
+  align-items: center;
+  min-height: 112px;
+  margin-bottom: 1.1rem;
+}
 
 /* ---------- Facts strip ---------- */
 .facts { display: grid; gap: 1px; background: var(--line); border: 1px solid var(--line); margin-top: 2rem; }

@@ -110,9 +110,8 @@ const DIAGRAMS = {
       </div>
       <div class="dg-code-body">
         <span class="dg-line" style="animation-delay:0s"><i class="dg-tag">&lt;section</i> <i class="dg-attr">class</i>=<i class="dg-val">"club"</i><i class="dg-tag">&gt;</i></span>
-        <span class="dg-line" style="animation-delay:.6s">  <i class="dg-tag">&lt;h1&gt;</i>Engineering Club<i class="dg-tag">&lt;/h1&gt;</i></span>
-        <span class="dg-line" style="animation-delay:1.2s">  <i class="dg-tag">&lt;p&gt;</i>Everyone welcome.<i class="dg-tag">&lt;/p&gt;</i></span>
-        <span class="dg-line" style="animation-delay:1.8s"><i class="dg-tag">&lt;/section&gt;</i></span>
+        <span class="dg-line" style="animation-delay:.7s">  <i class="dg-tag">&lt;h1&gt;</i>Engineering Club<i class="dg-tag">&lt;/h1&gt;</i></span>
+        <span class="dg-line" style="animation-delay:1.4s"><i class="dg-tag">&lt;/section&gt;</i></span>
       </div>
     </div>`,
 
@@ -218,27 +217,27 @@ const DIAGRAMS = {
     <svg viewBox="0 0 640 132" role="img"
          aria-label="A simple circuit with a battery, a resistor and an LED, showing current flowing around the loop and lighting the LED">
       <path class="dg-trace"
-            d="M96,96 L96,44 L232,44 L252,44 M340,44 L470,44 L470,68 M470,96 L470,100 L96,100 L96,96 Z" />
+            d="M170,58 L170,34 L268,34 M332,34 L430,34 L430,52 M430,90 L430,108 L170,108 L170,86" />
       <path class="dg-current"
-            d="M96,96 L96,44 L232,44 L252,44 M340,44 L470,44 L470,68 M470,96 L470,100 L96,100 L96,96" />
+            d="M170,58 L170,34 L268,34 M332,34 L430,34 L430,52 M430,90 L430,108 L170,108 L170,86" />
 
       <g class="dg-battery">
-        <line x1="80"  y1="86" x2="112" y2="86" />
-        <line class="dg-short" x1="88" y1="96" x2="104" y2="96" />
-        <line x1="80"  y1="106" x2="112" y2="106" />
-        <line class="dg-short" x1="88" y1="116" x2="104" y2="116" />
+        <line x1="152" y1="60" x2="188" y2="60" />
+        <line class="dg-short" x1="160" y1="68" x2="180" y2="68" />
+        <line x1="152" y1="76" x2="188" y2="76" />
+        <line class="dg-short" x1="160" y1="84" x2="180" y2="84" />
       </g>
 
       <polyline class="dg-resistor"
-                points="252,44 262,32 282,56 302,32 322,56 332,44 340,44" />
+                points="268,34 276,22 292,46 308,22 324,46 332,34" />
 
       <g class="dg-led">
-        <polygon class="dg-led-body" points="456,68 484,68 470,90" />
-        <line class="dg-led-bar" x1="454" y1="90" x2="486" y2="90" />
-        <circle class="dg-glow" cx="470" cy="79" r="26" />
+        <polygon class="dg-led-body" points="416,54 444,54 430,76" />
+        <line class="dg-led-bar" x1="414" y1="80" x2="446" y2="80" />
+        <circle class="dg-glow" cx="430" cy="66" r="24" />
       </g>
 
-      <text class="dg-label" x="128" y="112">9V</text>
-      <text class="dg-label" x="288" y="24">220&#8486;</text>
+      <text class="dg-label" x="198" y="76">9V</text>
+      <text class="dg-label" x="282" y="60">220&#8486;</text>
     </svg>`
 };

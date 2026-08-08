@@ -144,7 +144,14 @@
   function renderDiagrams() {
     document.querySelectorAll("[data-diagram]").forEach(function (host) {
       var svg = DIAGRAMS[host.dataset.diagram];
-      if (svg) host.innerHTML = svg;
+      if (!svg) return;
+      host.innerHTML = svg;
+
+      // The diagrams are drawn long and thin, which leaves them tiny in a
+      // narrow card. data-viewbox crops in so they sit taller there.
+      var box = host.dataset.viewbox;
+      var el  = box && host.querySelector("svg");
+      if (el) el.setAttribute("viewBox", box);
     });
   }
 
