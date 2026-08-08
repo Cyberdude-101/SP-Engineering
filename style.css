@@ -192,6 +192,7 @@ a { color: var(--bone); }
 .diagram svg { display: block; width: 100%; height: auto; overflow: visible; }
 .diagram--hero { max-width: 760px; margin-top: clamp(1.5rem, 1rem + 2vw, 2.4rem); }
 .diagram--card { margin: .2rem 0 1rem; }
+.diagram--band { max-width: 620px; margin: 0 auto clamp(1.8rem, 1.4rem + 1.6vw, 2.6rem); }
 
 /* Diagram parts — shared across all four drawings */
 .dg-chord   { stroke: var(--bone);  stroke-width: 2.4; fill: none; }
@@ -215,6 +216,21 @@ a { color: var(--bone); }
 .dg-part .dg-layer:nth-child(1) { stroke: var(--red); }
 .dg-bed        { stroke: var(--bone); stroke-width: 3; }
 
+/* Gears — the teeth are a thick dashed stroke, spaced to give each
+   wheel a whole number of them. */
+.dg-teeth { fill: none; stroke: var(--steel); stroke-width: 11; }
+.dg-gear-a .dg-teeth { stroke-dasharray: 12 12.1; }
+.dg-gear-b .dg-teeth { stroke-dasharray: 12 11.7; }
+.dg-gear-c .dg-teeth { stroke-width: 10; stroke-dasharray: 13 12.1; }
+.dg-body  { fill: var(--panel); stroke: var(--bone); stroke-width: 1.8; }
+.dg-spoke { stroke: var(--bone); stroke-width: 1.6; opacity: .5; }
+.dg-hub   { fill: var(--red); }
+
+/* Assembly */
+.dg-axis  { stroke: var(--steel); stroke-width: 1.2; stroke-dasharray: 14 5 3 5; opacity: .7; }
+.dg-metal { fill: var(--panel); stroke: var(--bone); stroke-width: 1.8; }
+.dg-hole  { fill: var(--ground); stroke: var(--red); stroke-width: 1.8; }
+
 .dg-trace     { stroke: var(--steel); stroke-width: 2.2; fill: none; opacity: .5; }
 .dg-current   { stroke: var(--red); stroke-width: 2.6; fill: none; stroke-dasharray: 5 17; stroke-linecap: round; }
 .dg-battery   { stroke: var(--bone); stroke-width: 2.2; }
@@ -233,6 +249,19 @@ a { color: var(--bone); }
 .dg-glow    { animation: dg-lit 2.6s ease-in-out infinite; }
 .dg-lift    { animation: dg-pulse 3.2s ease-in-out infinite; }
 
+/* fill-box puts each gear's origin at its own centre, so one rule spins
+   every wheel about its own axle wherever it sits. */
+.dg-gear { transform-box: fill-box; transform-origin: center; }
+.dg-gear-a { animation: dg-spin-cw  14s linear infinite; }
+.dg-gear-b { animation: dg-spin-ccw 10.3s linear infinite; }
+.dg-gear-c { animation: dg-spin-cw  7.3s linear infinite; }
+.dg-slide-r { animation: dg-close-r 5.6s ease-in-out infinite; }
+.dg-slide-l { animation: dg-close-l 5.6s ease-in-out infinite; }
+
+@keyframes dg-spin-cw  { to { transform: rotate(360deg) } }
+@keyframes dg-spin-ccw { to { transform: rotate(-360deg) } }
+@keyframes dg-close-r  { 0%, 100% { transform: translateX(0) } 42%, 58% { transform: translateX(118px) } }
+@keyframes dg-close-l  { 0%, 100% { transform: translateX(0) } 42%, 58% { transform: translateX(-118px) } }
 @keyframes dg-deflect  { 0%, 100% { transform: translateY(0) scaleY(1) } 50% { transform: translateY(3.5px) scaleY(1.05) } }
 @keyframes dg-stream   { to { stroke-dashoffset: -28 } }
 @keyframes dg-track    { 0%, 100% { transform: translateX(250px) } 50% { transform: translateX(390px) } }
@@ -295,9 +324,12 @@ a { color: var(--bone); }
 .pj-shot:hover img { transform: scale(1.04); }
 
 .pj-shot:last-child:nth-child(odd) { grid-column: 1 / -1; }
-/* The photos are portrait, so the feature tile stays close to square —
-   a wide crop of a vertical photo is how you end up with a torso. */
-.pj-shot:last-child:nth-child(odd) img { aspect-ratio: 5 / 4; }
+/* The taller feature crop applies only where there is actually a pair
+   above it. A card with a single photo keeps the standard 4:3 it had
+   before, so nothing changes on the one-photo cards.
+   Portrait sources, so the feature stays near square — a wide crop of a
+   vertical photo is how the old strips ended up showing torsos. */
+.pj-shot:last-child:nth-child(odd):not(:only-child) img { aspect-ratio: 5 / 4; }
 
 /* ---------- People ---------- */
 .people { margin: 0; display: grid; gap: .1rem 1.5rem; }

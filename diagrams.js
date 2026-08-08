@@ -87,6 +87,55 @@ const DIAGRAMS = {
       </g>
     </svg>`,
 
+  /* ---- Meetings: a gear train. The teeth are a thick dashed stroke
+     rather than drawn tooth by tooth. Ratios are real — the small gear
+     turns as many times faster as it is smaller. ---- */
+  gears: `
+    <svg viewBox="0 0 640 132" role="img"
+         aria-label="Three meshing gears turning, the smaller ones faster than the large one">
+      <g class="dg-gear dg-gear-a">
+        <circle class="dg-teeth" cx="262" cy="66" r="46" />
+        <circle class="dg-body"  cx="262" cy="66" r="41" />
+        <line class="dg-spoke" x1="262" y1="30" x2="262" y2="102" />
+        <line class="dg-spoke" x1="231" y1="48" x2="293" y2="84" />
+        <line class="dg-spoke" x1="231" y1="84" x2="293" y2="48" />
+        <circle class="dg-hub" cx="262" cy="66" r="9" />
+      </g>
+      <g class="dg-gear dg-gear-b">
+        <circle class="dg-teeth" cx="342" cy="66" r="34" />
+        <circle class="dg-body"  cx="342" cy="66" r="29" />
+        <line class="dg-spoke" x1="342" y1="40" x2="342" y2="92" />
+        <line class="dg-spoke" x1="319" y1="53" x2="365" y2="79" />
+        <circle class="dg-hub" cx="342" cy="66" r="7" />
+      </g>
+      <g class="dg-gear dg-gear-c">
+        <circle class="dg-teeth" cx="400" cy="66" r="24" />
+        <circle class="dg-body"  cx="400" cy="66" r="19" />
+        <line class="dg-spoke" x1="400" y1="49" x2="400" y2="83" />
+        <circle class="dg-hub" cx="400" cy="66" r="5" />
+      </g>
+    </svg>`,
+
+  /* ---- Join: an exploded assembly closing up, drawn on a centreline
+     the way an assembly drawing would show it. ---- */
+  assembly: `
+    <svg viewBox="0 0 640 132" role="img"
+         aria-label="An exploded assembly diagram, three parts sliding together along a centreline and apart again">
+      <line class="dg-axis" x1="120" y1="66" x2="520" y2="66" />
+      <g class="dg-slide-r">
+        <rect class="dg-metal" x="150" y="32" width="28" height="68" rx="2" />
+        <circle class="dg-hole" cx="164" cy="66" r="7" />
+      </g>
+      <g class="dg-fixed">
+        <rect class="dg-metal" x="296" y="44" width="48" height="44" rx="2" />
+        <circle class="dg-hole" cx="320" cy="66" r="7" />
+      </g>
+      <g class="dg-slide-l">
+        <rect class="dg-metal" x="462" y="32" width="28" height="68" rx="2" />
+        <circle class="dg-hole" cx="476" cy="66" r="7" />
+      </g>
+    </svg>`,
+
   /* ---- Circuits: current running from the battery, through the
      resistor, to the LED — which lights when it arrives. ---- */
   circuit: `
