@@ -8,6 +8,43 @@
    Add data-size="hero" to make it the large version.
    ============================================================ */
 
+/* Builds the outline of a gear, teeth and all.
+
+   Gears only mesh if the geometry is right, so this works the way real
+   gears do: every wheel shares one "module" (tooth size), which makes
+   the pitch radius simply module x teeth / 2. Two wheels mesh when the
+   distance between their centres equals the sum of their pitch radii.
+
+   The phase argument rotates the teeth so a tooth on one wheel lines up
+   with a gap on its neighbour. Without it the teeth collide instead of
+   interleaving, which is exactly what the first attempt did. */
+function gearPath(cx, cy, teeth, module, phase) {
+  var pitch = module * teeth / 2;
+  var tip   = pitch + module * 0.9;
+  var root  = pitch - module * 1.1;
+  var step  = 360 / teeth;
+  var tipHalf  = step * 0.18;
+  var rootHalf = step * 0.32;
+  var d = "";
+
+  for (var i = 0; i < teeth; i++) {
+    var c = phase + i * step;
+    var corners = [
+      [root, c - rootHalf],
+      [tip,  c - tipHalf],
+      [tip,  c + tipHalf],
+      [root, c + rootHalf]
+    ];
+    for (var k = 0; k < corners.length; k++) {
+      var a = corners[k][1] * Math.PI / 180;
+      var x = cx + corners[k][0] * Math.cos(a);
+      var y = cy + corners[k][0] * Math.sin(a);
+      d += (d ? "L" : "M") + x.toFixed(2) + "," + y.toFixed(2);
+    }
+  }
+  return d + "Z";
+}
+
 const DIAGRAMS = {
 
   /* ---- Bridges: a Warren truss deflecting under load. The two
@@ -94,45 +131,43 @@ const DIAGRAMS = {
     <svg viewBox="0 0 640 132" role="img"
          aria-label="Three meshing gears turning, the smaller ones faster than the large one">
       <g class="dg-gear dg-gear-a">
-        <circle class="dg-teeth" cx="262" cy="66" r="46" />
-        <circle class="dg-body"  cx="262" cy="66" r="41" />
-        <line class="dg-spoke" x1="262" y1="30" x2="262" y2="102" />
-        <line class="dg-spoke" x1="231" y1="48" x2="293" y2="84" />
-        <line class="dg-spoke" x1="231" y1="84" x2="293" y2="48" />
-        <circle class="dg-hub" cx="262" cy="66" r="9" />
+        <path   class="dg-cog"   d="${gearPath(257, 66, 14, 7, 0)}" />
+        <circle class="dg-rim"   cx="257" cy="66" r="36" />
+        <line   class="dg-spoke" x1="257" y1="32" x2="257" y2="100" />
+        <line   class="dg-spoke" x1="228" y1="49" x2="286" y2="83" />
+        <line   class="dg-spoke" x1="228" y1="83" x2="286" y2="49" />
+        <circle class="dg-hub"   cx="257" cy="66" r="9" />
       </g>
       <g class="dg-gear dg-gear-b">
-        <circle class="dg-teeth" cx="342" cy="66" r="34" />
-        <circle class="dg-body"  cx="342" cy="66" r="29" />
-        <line class="dg-spoke" x1="342" y1="40" x2="342" y2="92" />
-        <line class="dg-spoke" x1="319" y1="53" x2="365" y2="79" />
-        <circle class="dg-hub" cx="342" cy="66" r="7" />
+        <path   class="dg-cog"   d="${gearPath(341, 66, 10, 7, 18)}" />
+        <circle class="dg-rim"   cx="341" cy="66" r="22" />
+        <line   class="dg-spoke" x1="341" y1="45" x2="341" y2="87" />
+        <line   class="dg-spoke" x1="323" y1="56" x2="359" y2="76" />
+        <circle class="dg-hub"   cx="341" cy="66" r="7" />
       </g>
       <g class="dg-gear dg-gear-c">
-        <circle class="dg-teeth" cx="400" cy="66" r="24" />
-        <circle class="dg-body"  cx="400" cy="66" r="19" />
-        <line class="dg-spoke" x1="400" y1="49" x2="400" y2="83" />
-        <circle class="dg-hub" cx="400" cy="66" r="5" />
+        <path   class="dg-cog"   d="${gearPath(404, 66, 8, 7, 0)}" />
+        <circle class="dg-rim"   cx="404" cy="66" r="15" />
+        <line   class="dg-spoke" x1="404" y1="52" x2="404" y2="80" />
+        <circle class="dg-hub"   cx="404" cy="66" r="5" />
       </g>
     </svg>`,
 
-  /* ---- Join: an exploded assembly closing up, drawn on a centreline
-     the way an assembly drawing would show it. ---- */
-  assembly: `
+  /* ---- Join: a bolt turning its way through two plates. The thread is
+     a thick, heavily dashed stroke; marching the dashes along the shank
+     reads as the bolt turning while it advances. ---- */
+  bolt: `
     <svg viewBox="0 0 640 132" role="img"
-         aria-label="An exploded assembly diagram, three parts sliding together along a centreline and apart again">
+         aria-label="A bolt turning as it advances through two plates and draws them together">
       <line class="dg-axis" x1="120" y1="66" x2="520" y2="66" />
-      <g class="dg-slide-r">
-        <rect class="dg-metal" x="150" y="32" width="28" height="68" rx="2" />
-        <circle class="dg-hole" cx="164" cy="66" r="7" />
+      <g class="dg-plates">
+        <rect class="dg-plate" x="368" y="26" width="32" height="80" rx="2" />
+        <rect class="dg-plate" x="400" y="26" width="32" height="80" rx="2" />
       </g>
-      <g class="dg-fixed">
-        <rect class="dg-metal" x="296" y="44" width="48" height="44" rx="2" />
-        <circle class="dg-hole" cx="320" cy="66" r="7" />
-      </g>
-      <g class="dg-slide-l">
-        <rect class="dg-metal" x="462" y="32" width="28" height="68" rx="2" />
-        <circle class="dg-hole" cx="476" cy="66" r="7" />
+      <g class="dg-driver">
+        <polygon class="dg-bolt-head" points="150,36 174,24 198,36 198,96 174,108 150,96" />
+        <line class="dg-facet" x1="174" y1="24" x2="174" y2="108" />
+        <line class="dg-thread" x1="198" y1="66" x2="344" y2="66" />
       </g>
     </svg>`,
 
