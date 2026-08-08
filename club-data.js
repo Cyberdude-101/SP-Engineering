@@ -58,7 +58,7 @@ const CLUB = {
   /* The line that types itself out under the club name on the home page.
      Home page only — it's a slogan, and it wears thin if it's everywhere.
      Set to "" to turn the effect off. */
-  tagline: "Design. Build. Find out.",
+  tagline: "Design. Build. Test to failure.",
 
 
   /* ---------- PROJECTS ----------
