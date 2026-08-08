@@ -348,6 +348,31 @@
     });
   }
 
+  /* ---------- Typing tagline (home page only) ---------- */
+  function initTyping() {
+    var el = document.getElementById("typing");
+    if (!el) return;
+
+    var phrase = CLUB.tagline || "";
+    if (!phrase) { el.remove(); return; }
+
+    if (reduceMotion) {
+      el.textContent = phrase;
+      el.classList.add("done");
+      return;
+    }
+
+    var i = 0;
+    (function next() {
+      if (i < phrase.length) {
+        el.textContent += phrase.charAt(i++);
+        setTimeout(next, 62);
+      } else {
+        el.classList.add("done");
+      }
+    })();
+  }
+
   /* ---------- Go ---------- */
   renderDiagrams();
   renderNextMeeting();
@@ -357,4 +382,5 @@
   initNav();
   initCopy();
   initLightbox();
+  initTyping();
 })();

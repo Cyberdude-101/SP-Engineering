@@ -55,12 +55,19 @@ const CLUB = {
      and the meetings page. Set to "" if you would rather not say. */
   currentUnit: "",
 
+  /* The line that types itself out under the club name on the home page.
+     Home page only — it's a slogan, and it wears thin if it's everywhere.
+     Set to "" to turn the effect off. */
+  tagline: "Design. Build. Test to failure.",
+
 
   /* ---------- PROJECTS ----------
      TO ADD A PROJECT: copy one { ... } block, change the fields,
      put it at the TOP of the list. That is the whole job.
 
      photos:  filenames from the img/ folder. Use [] for none yet.
+              Two show per row. If you list an odd number, the LAST one
+              runs full width as the feature — so put the best one last.
      diagram: "truss" | "airfoil" | "printer" | "circuit" | ""
      term:    free text, shown as a label on the card.
      current: true puts it in "What we're working on" instead of
@@ -90,9 +97,9 @@ const CLUB = {
                "tape, then added weight until they failed. The truss designs held " +
                "up best.",
       photos:  [
-        { file: "IMG_0822.jpeg", alt: "Two finished bridges side by side — a covered truss design and a string suspension design" },
         { file: "IMG_0769.jpeg", alt: "A club member holding up their completed truss bridge" },
-        { file: "bridge-build-classroom.jpg", alt: "Club members working on a popsicle-stick bridge across two desks during a build session" }
+        { file: "bridge-build-classroom.jpg", alt: "Club members working on a popsicle-stick bridge across two desks during a build session" },
+        { file: "IMG_0822.jpeg", alt: "Two finished bridges side by side — a covered truss design and a string suspension design" }
       ]
     }
 

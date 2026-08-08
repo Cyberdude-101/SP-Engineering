@@ -118,6 +118,22 @@ a { color: var(--bone); }
   text-transform: uppercase; color: var(--steel); margin-bottom: .9rem;
 }
 .hero h1 { font-size: clamp(2.2rem, 1.4rem + 5.2vw, 4.4rem); }
+
+/* Types itself out under the club name. Reserve the line height up front
+   so the rest of the hero doesn't jump as characters land. */
+.hero-type {
+  min-height: 1.5em;
+  margin-top: .55rem;
+  font-family: var(--mono);
+  font-size: clamp(.75rem, .7rem + .3vw, .88rem);
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--red-hi);
+}
+.hero-type::after { content: "_"; animation: blink 1.1s steps(1) infinite; }
+.hero-type.done::after { content: ""; }
+@keyframes blink { 0%, 49% { opacity: 1 } 50%, 100% { opacity: 0 } }
+
 .hero-sub {
   margin-top: 1.1rem; max-width: 52ch;
   font-size: clamp(1rem, .95rem + .35vw, 1.15rem); color: var(--bone-dim);
@@ -270,10 +286,18 @@ a { color: var(--bone); }
 .pj > p { color: var(--bone-dim); font-size: .95rem; }
 .pj-empty { color: var(--bone-dim); max-width: 54ch; }
 .pj-nophotos { font-family: var(--mono); font-size: .72rem; color: var(--steel); margin-top: 1rem; }
-.pj-shots { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(140px, 100%), 1fr)); gap: .6rem; margin-top: 1.2rem; }
+/* Two per row, and when the count is odd the last one runs full width as
+   a feature image. Works for any number: 1 is featured, 2 sit side by
+   side, 3 is a pair above a feature, 4 is a plain 2x2. */
+.pj-shots { display: grid; grid-template-columns: repeat(2, 1fr); gap: .6rem; margin-top: 1.2rem; }
 .pj-shot { padding: 0; border: 1px solid var(--line-2); background: none; cursor: zoom-in; overflow: hidden; }
-.pj-shot img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; transition: transform .3s ease; }
+.pj-shot img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; object-position: center 40%; transition: transform .3s ease; }
 .pj-shot:hover img { transform: scale(1.04); }
+
+.pj-shot:last-child:nth-child(odd) { grid-column: 1 / -1; }
+/* The photos are portrait, so the feature tile stays close to square —
+   a wide crop of a vertical photo is how you end up with a torso. */
+.pj-shot:last-child:nth-child(odd) img { aspect-ratio: 5 / 4; }
 
 /* ---------- People ---------- */
 .people { margin: 0; display: grid; gap: .1rem 1.5rem; }
