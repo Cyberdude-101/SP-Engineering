@@ -272,6 +272,16 @@
       at = (i + shots.length) % shots.length;
       full.src = shots[at].src;
       full.alt = shots[at].alt;
+
+      // Never blow a photo up past its own resolution — a small source
+      // stretched to fill the screen looks far worse than a small photo.
+      full.style.maxWidth = "";
+      // Keep the 100% cap as well, or this overflows a narrow screen.
+      full.onload = function () {
+        full.style.maxWidth = "min(100%, " + Math.min(1100, full.naturalWidth) + "px)";
+      };
+      if (full.complete && full.naturalWidth) full.onload();
+
       caption.textContent = shots[at].alt +
         (shots.length > 1 ? "  (" + (at + 1) + " of " + shots.length + ")" : "");
       box.querySelector("[data-dir]").hidden = shots.length < 2;

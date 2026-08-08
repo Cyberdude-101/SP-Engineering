@@ -55,9 +55,9 @@ const CLUB = {
       blurb:   "We learned what actually keeps a plane in the air — lift, drag, " +
                "centre of gravity — and then built gliders out of balsa and tape " +
                "to find out whose theory survived contact with the hallway.",
-      photos:  []
-      // No photos in img/ for this one yet. Drop files into img/ and
-      // list them here, e.g. photos: ["airplanes-hallway.jpeg"]
+      photos:  [
+        { file: "airplanes-hallway.jpg", alt: "Two club members in the school hallway holding the gliders they built from folded card and tape, with a third design in the foreground" }
+      ]
     },
 
     {
@@ -70,7 +70,8 @@ const CLUB = {
                "the things that were not trusses did not.",
       photos:  [
         { file: "IMG_0822.jpeg", alt: "Two finished bridges side by side — a covered truss design and a string suspension design" },
-        { file: "IMG_0769.jpeg", alt: "A club member holding up their completed truss bridge" }
+        { file: "IMG_0769.jpeg", alt: "A club member holding up their completed truss bridge" },
+        { file: "bridge-build-classroom.jpg", alt: "Club members working on a popsicle-stick bridge across two desks during a build session" }
       ]
     }
 
