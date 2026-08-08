@@ -73,9 +73,9 @@ const CLUB = {
       term:    "Last year",
       current: false,
       diagram: "airfoil",
-      blurb:   "We learned what actually keeps a plane in the air — lift, drag, " +
-               "centre of gravity — and then built gliders out of balsa and tape " +
-               "to find out whose theory survived contact with the hallway.",
+      blurb:   "We covered how a plane stays in the air — lift, drag, center of " +
+               "gravity — then built gliders out of balsa and tape and flew them " +
+               "in the hallway.",
       photos:  [
         { file: "airplanes-hallway.jpg", alt: "Two club members in the school hallway holding the gliders they built from folded card and tape, with a third design in the foreground" }
       ]
@@ -86,9 +86,9 @@ const CLUB = {
       term:    "Last year",
       current: false,
       diagram: "truss",
-      blurb:   "Teams designed and built bridges from popsicle sticks, glue and " +
-               "tape, then loaded them until they broke. Trusses held. Most of " +
-               "the things that were not trusses did not.",
+      blurb:   "Teams designed and built bridges out of popsicle sticks, glue and " +
+               "tape, then added weight until they failed. The truss designs held " +
+               "up best.",
       photos:  [
         { file: "IMG_0822.jpeg", alt: "Two finished bridges side by side — a covered truss design and a string suspension design" },
         { file: "IMG_0769.jpeg", alt: "A club member holding up their completed truss bridge" },

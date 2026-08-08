@@ -38,10 +38,12 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-h1, h2, h3 { font-family: var(--cond); text-transform: uppercase; line-height: .96; margin: 0; }
-h1 { letter-spacing: .004em; }
-h2 { font-size: clamp(1.5rem, 1.2rem + 1.4vw, 2.1rem); letter-spacing: .02em; }
-h3 { font-size: clamp(1.15rem, 1rem + .7vw, 1.45rem); letter-spacing: .03em; }
+/* Only the page title is set in caps. Caps on every heading turned the
+   whole page into signage, which reads as shouting rather than as design. */
+h1, h2, h3 { font-family: var(--cond); line-height: 1.04; margin: 0; }
+h1 { text-transform: uppercase; letter-spacing: .004em; }
+h2 { font-size: clamp(1.4rem, 1.15rem + 1.2vw, 1.9rem); letter-spacing: .01em; }
+h3 { font-size: clamp(1.1rem, 1rem + .55vw, 1.3rem); letter-spacing: .012em; }
 
 p { margin: 0 0 1rem; }
 p:last-child { margin-bottom: 0; }
@@ -115,16 +117,11 @@ a { color: var(--bone); }
   font-family: var(--mono); font-size: .66rem; letter-spacing: .2em;
   text-transform: uppercase; color: var(--steel); margin-bottom: .9rem;
 }
-.hero h1 { font-size: clamp(2.4rem, 1.4rem + 6.4vw, 5.4rem); }
-.hero h1 span { display: block; color: var(--steel); }
+.hero h1 { font-size: clamp(2.2rem, 1.4rem + 5.2vw, 4.4rem); }
 .hero-sub {
-  margin-top: 1.1rem; max-width: 46ch;
+  margin-top: 1.1rem; max-width: 52ch;
   font-size: clamp(1rem, .95rem + .35vw, 1.15rem); color: var(--bone-dim);
 }
-.hero-type { min-height: 1.6em; font-family: var(--mono); font-size: .82rem; letter-spacing: .1em; color: var(--steel); text-transform: uppercase; margin-top: .6rem; }
-.hero-type::after { content: "_"; animation: blink 1.1s steps(1) infinite; }
-.hero-type.done::after { content: ""; }
-@keyframes blink { 0%, 49% { opacity: 1 } 50%, 100% { opacity: 0 } }
 
 /* ---------- Next meeting: the redline annotation ----------
    Red on a drawing marks the revision — so the thing that
@@ -241,7 +238,7 @@ a { color: var(--bone); }
 @media (min-width: 640px) { .facts { grid-template-columns: repeat(3, 1fr); } }
 .facts > div { background: var(--ground); padding: 1.1rem 1.3rem; }
 .facts dt { font-family: var(--mono); font-size: .62rem; letter-spacing: .17em; text-transform: uppercase; color: var(--steel); }
-.facts dd { margin: .25rem 0 0; font-family: var(--cond); font-size: 1.25rem; text-transform: uppercase; }
+.facts dd { margin: .25rem 0 0; font-family: var(--cond); font-size: 1.25rem; }
 
 /* ---------- Schedule ---------- */
 .sched { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--line); }
@@ -249,9 +246,8 @@ a { color: var(--bone); }
   display: flex; justify-content: space-between; align-items: baseline; gap: 1rem;
   padding: .85rem .2rem; border-bottom: 1px solid var(--line);
 }
-.sched-date { font-family: var(--cond); font-size: 1.15rem; text-transform: uppercase; letter-spacing: .03em; }
+.sched-date { font-family: var(--cond); font-size: 1.1rem; letter-spacing: .01em; }
 .sched-note { font-family: var(--mono); font-size: .66rem; letter-spacing: .14em; text-transform: uppercase; color: #ff8494; }
-.sched li.is-next { border-left: 3px solid var(--red); padding-left: .9rem; background: rgba(200, 16, 46, .06); }
 
 /* ---------- Copy card ---------- */
 .copycard {
@@ -296,9 +292,6 @@ a { color: var(--bone); }
 }
 .steps h3 { margin-bottom: .4rem; }
 .steps p { color: var(--bone-dim); font-size: .93rem; }
-
-/* ---------- Photo strip ---------- */
-.strip-photo { border-block: 1px solid var(--line); height: clamp(160px, 26vw, 300px); background-size: cover; background-position: center 42%; filter: grayscale(.35); }
 
 /* ---------- Lightbox ---------- */
 .lightbox { position: fixed; inset: 0; z-index: 300; display: none; place-items: center; padding: 1.5rem; background: rgba(6, 8, 11, .95); }

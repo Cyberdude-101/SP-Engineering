@@ -126,17 +126,17 @@
     var host = document.querySelector("[data-schedule]");
     if (!host) return;
 
-    var list = upcomingMeetings(8);
+    // Deliberately short. Publishing the whole year means every one of
+    // those dates is a promise, and later ones are the most likely to move.
+    var list = upcomingMeetings(4).slice(1);
     if (!list.length) {
-      host.innerHTML = '<p class="muted">The schedule for next school year will be posted in August.</p>';
+      host.innerHTML = '<p class="muted">Nothing else on the calendar yet.</p>';
       return;
     }
 
-    host.innerHTML = "<ol class='sched'>" + list.map(function (d, i) {
-      return "<li" + (i === 0 ? " class='is-next'" : "") + ">" +
-               "<span class='sched-date'>" + longDate(d) + "</span>" +
-               "<span class='sched-note'>" + (i === 0 ? relative(d) : "") + "</span>" +
-             "</li>";
+    // No "next" highlight here — the next meeting has its own block above.
+    host.innerHTML = "<ol class='sched'>" + list.map(function (d) {
+      return "<li><span class='sched-date'>" + longDate(d) + "</span></li>";
     }).join("") + "</ol>";
   }
 
@@ -189,8 +189,7 @@
               "<div class='pj-grid'>" + current.map(projectCard).join("") + "</div></section>";
     } else {
       html += "<section class='pj-group'><h2>What we're working on</h2>" +
-              "<p class='pj-empty'>This year's first project gets picked at the first meeting " +
-              "&mdash; come and have a say in it.</p></section>";
+              "<p class='pj-empty'>The first project gets picked at the first meeting.</p></section>";
     }
 
     if (archive.length) {
@@ -349,28 +348,6 @@
     });
   }
 
-  /* ---------- Typing effect ---------- */
-  function initTyping() {
-    var el = document.getElementById("typing");
-    if (!el) return;
-
-    var phrase = el.dataset.text || "";
-    if (reduceMotion) {
-      el.textContent = phrase;
-      el.classList.add("done");
-      return;
-    }
-    var i = 0;
-    (function next() {
-      if (i < phrase.length) {
-        el.textContent += phrase.charAt(i++);
-        setTimeout(next, 62);
-      } else {
-        el.classList.add("done");
-      }
-    })();
-  }
-
   /* ---------- Go ---------- */
   renderDiagrams();
   renderNextMeeting();
@@ -380,5 +357,4 @@
   initNav();
   initCopy();
   initLightbox();
-  initTyping();
 })();
