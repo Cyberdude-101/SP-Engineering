@@ -3,66 +3,114 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Engineering Club | Meetings</title>
+  <title>Meetings | South Point Engineering Club</title>
+  <meta name="description" content="When the South Point Engineering Club meets — every other Wednesday, 3:30 to 4:30, in Mrs. Best's room. Full schedule for the year." />
+  <meta name="theme-color" content="#0e1216" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' fill='%230e1216'/><path d='M4 24 L11 9 L18 24 M11 9 L25 9 L25 24' stroke='%23c8102e' stroke-width='2.6' fill='none'/></svg>" />
   <link rel="stylesheet" href="style.css" />
+  <script src="club-data.js" defer></script>
+  <script src="diagrams.js" defer></script>
+  <script src="site.js" defer></script>
 </head>
 <body>
 
+<a class="skip-link" href="#main">Skip to content</a>
+
 <nav class="navbar">
-  <div class="logo">Engineering Club</div>
-  <ul class="nav-links">
-    <li><a href="index.html">Home</a></li>
-    <li><a href="meetings.html" class="active">Meetings</a></li>
-    <li><a href="info.html">Information</a></li>
-    <li><a href="members.html">Members</a></li>
-    <li><a href="gallery.html">Gallery</a></li>
-  </ul>
+  <div class="shell">
+    <a class="brand" href="index.html">South Point Engineering</a>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-links">
+      <span class="nav-bars" aria-hidden="true"></span> Menu
+    </button>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="meetings.html" aria-current="page">Meetings</a></li>
+      <li><a href="projects.html">Projects</a></li>
+      <li><a href="join.html">Join</a></li>
+    </ul>
+  </div>
 </nav>
 
-<main class="page">
+<main id="main">
 
-  <h1>Meeting Information</h1>
+  <header class="page-head">
+    <div class="shell">
+      <p class="kicker">Every other Wednesday &nbsp;/&nbsp; 3:30&ndash;4:30 &nbsp;/&nbsp; Room 105</p>
+      <h1>Meetings</h1>
+      <p>Drop in on any of them. You do not need to have been to the earlier ones, and you do not need to come to all of them.</p>
+    </div>
+  </header>
 
-  <!-- NEXT MEETING -->
-  <div class="container-wrapper">
-  <div class="container">
-  <section class="info-box copy-box" onclick="copyMeetingInfo()">
-    <h2>Next Meeting</h2>
+  <section class="band">
+    <div class="shell">
 
-    <p id="meeting-info">
-      <strong>Date</strong>: Wednesday, 1/4<br>
-      <strong>Time</strong>: 3:30 - 4:30<br>
-      <strong>Location</strong>: Mrs.Best's room<br>
-      <strong>Current Unit</strong>: Wooden Airplanes
-    </p>
+      <div class="nextmeeting">
+        <div class="leader" aria-hidden="true"></div>
+        <div class="nm-body" data-next-meeting>
+          <p class="nm-status">Next meeting</p>
+          <p class="nm-when">Every other Wednesday</p>
+          <p class="nm-where">3:30&ndash;4:30 PM &nbsp;&middot;&nbsp; Mrs. Best&rsquo;s room (#105)</p>
+        </div>
+      </div>
+
+      <div class="actions">
+        <button class="copycard" type="button" data-copy style="max-width: 620px;">
+          Send the details to someone who keeps saying they&rsquo;ll come
+          <span class="copy-hint">Tap to copy</span>
+        </button>
+      </div>
+
+    </div>
   </section>
 
-  <!-- PAST MEETINGS -->
-  <section class="info-box">
-    <h2>Past Meetings</h2>
-    <p>
-      • <strong>Wooden airplanes</strong> — Learned the basics of how a plane flies <br>
-      • <strong>Bridges</strong> — Stength tested bridge designs<br>
-      • <strong>Bridges</strong> — Each group finished biulding their bridge<br>
-      • <strong>Bridges meetings 2-3</strong> — Formed groups and started design and construction of wooden bridges<br>
-      • <strong>Bridges</strong> — First meeting. Everyone learned the basics of bridges and organized into groups<br>
-    </p>
+  <div class="strip-photo" role="img"
+       aria-label="Two club members taping the deck of their bridge together during a build session"
+       style="background-image: url('img/IMG_0776.jpeg');"></div>
+
+  <section class="band">
+    <div class="shell">
+      <div class="band-head">
+        <p class="kicker">The rest of the year</p>
+        <h2>Coming up</h2>
+        <p>These are worked out from the schedule, so they stay right without anyone having to update the page. Holidays are already taken out.</p>
+      </div>
+      <div data-schedule>
+        <p class="muted">Every other Wednesday, 3:30&ndash;4:30, in Mrs. Best&rsquo;s room (#105).</p>
+      </div>
+    </div>
   </section>
-</div>
-</div>
-<footer>
-  <p>© 2026 Engineering Club | South Point</p>
-</footer>
+
+  <section class="band band--panel">
+    <div class="shell">
+      <div class="band-head">
+        <p class="kicker">What a meeting looks like</p>
+        <h2>An hour, and something to show for it</h2>
+      </div>
+      <ol class="steps">
+        <li>
+          <h3>Turn up</h3>
+          <p>Room 105 straight after school. Sign the attendance sheet on your way in &mdash; that is the entire membership process.</p>
+        </li>
+        <li>
+          <h3>Get the problem</h3>
+          <p>A challenge and a pile of materials. Usually you work in a group of two or three, and you pick your own approach.</p>
+        </li>
+        <li>
+          <h3>Build and test it</h3>
+          <p>Most units run across a few meetings and finish with a test. Some things hold. Some things very much do not.</p>
+        </li>
+      </ol>
+    </div>
+  </section>
+
 </main>
 
-<!-- SCRIPT -->
-<script>
-  function copyMeetingInfo() {
-    const text = document.getElementById("meeting-info").innerText;
-    navigator.clipboard.writeText(text);
-    alert("Next meeting info copied to clipboard!");
-  }
-</script>
+<footer class="site-footer">
+  <div class="shell">
+    <span>&copy; 2026 Engineering Club &middot; South Point High School</span>
+    <span>Founded 2025 &middot; Belmont, NC</span>
+  </div>
+</footer>
 
 </body>
 </html>

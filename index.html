@@ -3,52 +3,123 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Engineering Club</title>
+  <title>South Point Engineering Club</title>
+  <meta name="description" content="The Engineering Club at South Point High School. We design and build real things — bridges, planes, circuits, 3D prints — then test them until they break. Every other Wednesday, Room 105. No experience needed." />
+  <meta name="theme-color" content="#0e1216" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="South Point Engineering Club" />
+  <meta property="og:description" content="Build it. Then break it. Every other Wednesday in Room 105 — no experience, nothing to bring, free." />
+  <meta property="og:url" content="https://cyberdude-101.github.io/SP-Engineering/" />
+  <meta property="og:image" content="https://cyberdude-101.github.io/SP-Engineering/img/IMG_2202.jpeg" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' fill='%230e1216'/><path d='M4 24 L11 9 L18 24 M11 9 L25 9 L25 24' stroke='%23c8102e' stroke-width='2.6' fill='none'/></svg>" />
   <link rel="stylesheet" href="style.css" />
+  <script src="club-data.js" defer></script>
+  <script src="diagrams.js" defer></script>
+  <script src="site.js" defer></script>
 </head>
 <body>
 
+<a class="skip-link" href="#main">Skip to content</a>
+
 <nav class="navbar">
-  <div class="logo">Engineering Club</div>
-  <ul class="nav-links">
-    <li><a href="index.html" class="active">Home</a></li>
-    <li><a href="meetings.html">Meetings</a></li>
-    <li><a href="info.html">Information</a></li>
-    <li><a href="members.html">Members</a></li>
-    <li><a href="gallery.html">Gallery</a></li>
-  </ul>
+  <div class="shell">
+    <a class="brand" href="index.html">South Point Engineering</a>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-links">
+      <span class="nav-bars" aria-hidden="true"></span> Menu
+    </button>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="index.html" aria-current="page">Home</a></li>
+      <li><a href="meetings.html">Meetings</a></li>
+      <li><a href="projects.html">Projects</a></li>
+      <li><a href="join.html">Join</a></li>
+    </ul>
+  </div>
 </nav>
 
-<header class="hero-text-only">
-  <h1 class="hero-title">Engineering Club</h1>
-<p class="hero-tagline" id="typing-text"></p>
-</header>
+<main id="main">
 
-<section class="home-buttons">
-  <a href="meetings.html" class="home-btn">Next Meeting</a>
-  <a href="info.html" class="home-btn">Information</a>
-  <a href="members.html" class="home-btn">Members</a>
-  <a href="gallery.html" class="home-btn">Gallery</a>
-</section>
-<script>
-  const text = "Design. Build. Innovate.";
-  const speed = 80;
-  let index = 0;
+  <header class="hero">
+    <div class="hero-photo" aria-hidden="true"></div>
+    <div class="shell">
+      <p class="kicker">South Point High School &nbsp;/&nbsp; Belmont, NC &nbsp;/&nbsp; Room 105</p>
+      <h1>Build it.<span>Then break it.</span></h1>
+      <p class="hero-sub">Bridges, planes, circuits, 3D prints. We design something, build it, and then load it until it fails &mdash; because that&rsquo;s the part you actually learn from.</p>
+      <p class="hero-type" id="typing" data-text="Design. Build. Test to failure."></p>
 
-  const typingEl = document.getElementById("typing-text");
+      <div class="diagram diagram--hero" data-diagram="truss"></div>
 
-  function typeText() {
-    if (index < text.length) {
-      typingEl.textContent += text.charAt(index);
-      index++;
-      setTimeout(typeText, speed);
-    } else {
-      // hide the cursor when typing finishes
-      typingEl.classList.add("cursor-hidden");
-    }
-  }
+      <div class="nextmeeting">
+        <div class="leader" aria-hidden="true"></div>
+        <div class="nm-body" data-next-meeting>
+          <!-- Replaced by site.js. This is what shows if scripts don't run. -->
+          <p class="nm-status">Next meeting</p>
+          <p class="nm-when">Every other Wednesday</p>
+          <p class="nm-where">3:30&ndash;4:30 PM &nbsp;&middot;&nbsp; Mrs. Best&rsquo;s room (#105)</p>
+        </div>
+      </div>
 
-  window.onload = typeText;
-</script>
+      <div class="actions">
+        <a class="btn" href="join.html">How to join</a>
+        <a class="btn btn--ghost" href="meetings.html">All meeting dates</a>
+        <span class="btn-note">No experience &middot; nothing to bring &middot; free</span>
+      </div>
+    </div>
+  </header>
+
+  <section class="band">
+    <div class="shell">
+      <div class="band-head">
+        <p class="kicker">What we build</p>
+        <h2>Four weeks of theory is worth one afternoon of it breaking</h2>
+        <p>We try to cover as much of engineering as we can fit into an hour after school. Every unit ends with a test &mdash; sometimes that means a stopwatch, sometimes it means finding out how much weight a bridge takes before the glue lets go.</p>
+      </div>
+
+      <div class="builds">
+        <div class="build">
+          <div class="diagram" data-diagram="airfoil"></div>
+          <h3>Planes and flight</h3>
+          <p>Why a wing lifts, where the centre of gravity has to sit, and what happens when it doesn&rsquo;t. Then we build gliders and throw them down the hallway.</p>
+        </div>
+        <div class="build">
+          <div class="diagram" data-diagram="circuit"></div>
+          <h3>Electronics and circuitry</h3>
+          <p>Current, resistance, and why the LED needs a resistor in front of it. Breadboards, multimeters, and the occasional smell of something burning.</p>
+        </div>
+      </div>
+
+      <dl class="facts">
+        <div><dt>Bring</dt><dd>Nothing</dd></div>
+        <div><dt>Experience</dt><dd>None</dd></div>
+        <div><dt>Cost</dt><dd>Free</dd></div>
+      </dl>
+    </div>
+  </section>
+
+  <section class="band band--panel">
+    <div class="shell">
+      <div class="band-head">
+        <p class="kicker">Getting in</p>
+        <h2>There is no sign-up process</h2>
+        <p>Turn up to a meeting and write your name on the attendance sheet. That is genuinely the whole thing &mdash; no form, no fee, and it doesn&rsquo;t matter if you&rsquo;ve missed every meeting so far.</p>
+      </div>
+      <div class="actions">
+        <a class="btn" href="join.html">What to expect</a>
+        <a class="btn btn--ghost" href="projects.html">See what we&rsquo;ve built</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="shell">
+    <span>&copy; 2026 Engineering Club &middot; South Point High School</span>
+    <span>Founded 2025 &middot; Belmont, NC</span>
+  </div>
+</footer>
+
 </body>
 </html>

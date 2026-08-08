@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Projects | South Point Engineering Club</title>
+  <meta name="description" content="What the South Point Engineering Club has designed, built and tested — popsicle stick bridges, balsa gliders, circuits and 3D prints." />
+  <meta name="theme-color" content="#0e1216" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' fill='%230e1216'/><path d='M4 24 L11 9 L18 24 M11 9 L25 9 L25 24' stroke='%23c8102e' stroke-width='2.6' fill='none'/></svg>" />
+  <link rel="stylesheet" href="style.css" />
+  <script src="club-data.js" defer></script>
+  <script src="diagrams.js" defer></script>
+  <script src="site.js" defer></script>
+</head>
+<body>
+
+<a class="skip-link" href="#main">Skip to content</a>
+
+<nav class="navbar">
+  <div class="shell">
+    <a class="brand" href="index.html">South Point Engineering</a>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-links">
+      <span class="nav-bars" aria-hidden="true"></span> Menu
+    </button>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="meetings.html">Meetings</a></li>
+      <li><a href="projects.html" aria-current="page">Projects</a></li>
+      <li><a href="join.html">Join</a></li>
+    </ul>
+  </div>
+</nav>
+
+<main id="main">
+
+  <header class="page-head">
+    <div class="shell">
+      <p class="kicker">Design &nbsp;/&nbsp; Build &nbsp;/&nbsp; Test to failure</p>
+      <h1>Projects</h1>
+      <p>Every unit runs the same way: a problem, a pile of materials, and a test at the end that settles the argument.</p>
+      <div class="diagram diagram--hero" data-diagram="printer"></div>
+    </div>
+  </header>
+
+  <section class="band">
+    <div class="shell" data-projects>
+      <p class="muted">Project list is loading. If it stays like this, scripts are switched off in your browser.</p>
+    </div>
+  </section>
+
+  <section class="band band--panel">
+    <div class="shell">
+      <div class="band-head">
+        <p class="kicker">Next</p>
+        <h2>This year is wide open</h2>
+        <p>Robotics, CAD and 3D printing, more circuitry, and whatever the club argues its way into at the first meeting. If you want to build something specific, turn up and say so &mdash; that is usually how a unit gets picked.</p>
+      </div>
+      <div class="actions">
+        <a class="btn" href="join.html">How to join</a>
+        <a class="btn btn--ghost" href="meetings.html">Meeting dates</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Photo viewer">
+  <button class="lb-close" type="button" aria-label="Close viewer">&times;</button>
+  <button class="lb-nav" data-dir="prev" type="button" aria-label="Previous photo">&#8249;</button>
+  <button class="lb-nav" data-dir="next" type="button" aria-label="Next photo">&#8250;</button>
+  <img alt="" />
+  <p class="lb-caption"></p>
+</div>
+
+<footer class="site-footer">
+  <div class="shell">
+    <span>&copy; 2026 Engineering Club &middot; South Point High School</span>
+    <span>Founded 2025 &middot; Belmont, NC</span>
+  </div>
+</footer>
+
+</body>
+</html>
