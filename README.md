@@ -2,7 +2,7 @@
 
 Website for the **Engineering Club at South Point High School**.
 
-Live at <https://cyberdude-101.github.io/SP-Engineering/>
+Live at <https://sphs-engineering.site>
 
 Plain HTML, CSS and JavaScript &mdash; no build step and no frameworks. Edit a
 file, commit, push, and GitHub Pages publishes it about a minute later.
@@ -106,7 +106,7 @@ Photos currently sitting unused in `img/`, ready for future pages:
 | `projects.html` | Project list (built from `club-data.js`) |
 | `join.html` | How to join, FAQ, contact |
 | `club-data.js` | **Schedule, projects, contacts &mdash; edit this one** |
-| `diagrams.js` | The four animated drawings |
+| `diagrams.js` | The animated drawings |
 | `site.js` | Menu, dates, project rendering, photo viewer |
 | `style.css` | All styling |
 | `img/` | Photos |
@@ -154,3 +154,29 @@ python -m http.server 8000
 
 Then open <http://localhost:8000>. You need a local server rather than opening
 the files directly, or the copy button and project list will not work.
+
+---
+
+## The domain
+
+The site is at **sphs-engineering.site**, registered through Namecheap.
+`cyberdude-101.github.io/SP-Engineering` still works and redirects there.
+
+The domain is pointed at GitHub by five DNS records in the Namecheap
+dashboard (four A records on `@`, one CNAME on `www`), plus the `CNAME`
+file in this repo. Do not delete that file &mdash; it is what tells GitHub
+Pages which domain to answer on.
+
+**It has to be renewed every year or the site goes dark.** Whoever runs
+the club needs to know:
+
+| | |
+| --- | --- |
+| Registrar | Namecheap |
+| Renews | every year &mdash; check the date in the Namecheap dashboard |
+| Paid by | *(fill this in)* |
+
+Check the renewal price now rather than at renewal time. `.site` domains
+are often cheap for the first year and considerably more after that. If
+nobody is going to keep paying it, let it lapse deliberately and go back
+to the free `github.io` address rather than losing the site overnight.
