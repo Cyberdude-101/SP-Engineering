@@ -282,7 +282,7 @@
       var next = upcomingMeetings(1)[0];
       if (!next) return;
 
-      var text = "Engineering Club — Next Meeting\n" +
+      var text = "Engineering Club: Next Meeting\n" +
                  "Date: " + longDate(next) + "\n" +
                  "Time: " + CLUB.startTime + "–" + CLUB.endTime + "\n" +
                  "Where: " + CLUB.room;
@@ -322,7 +322,6 @@
     if (!box) return;
 
     var full    = box.querySelector("img");
-    var caption = box.querySelector(".lb-caption");
     var shots   = [];
     var at      = 0;
     var restore = null;
@@ -345,8 +344,6 @@
       };
       if (full.complete && full.naturalWidth) full.onload();
 
-      caption.textContent = shots[at].alt +
-        (shots.length > 1 ? "  (" + (at + 1) + " of " + shots.length + ")" : "");
       box.querySelector("[data-dir]").hidden = shots.length < 2;
       box.querySelectorAll("[data-dir]").forEach(function (b) { b.hidden = shots.length < 2; });
     }

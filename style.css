@@ -13,8 +13,9 @@
   --steel:    #7d99ab;
   --red:      #c8102e;          /* South Point red — fills and graphics */
   --red-hi:   #e01432;          /* hover only */
-  --red-text: #ff8494;          /* red TEXT on the dark ground; the solid
-                                   red is only 3.9:1 here, which fails */
+  --red-text: #ff2b3d;          /* red TEXT on the dark ground. Solid Raider
+                                   red is only 3.9:1 here and fails, so this
+                                   is the reddest that still clears 4.5:1 */
   --line:     rgba(233, 229, 219, .13);
   --line-2:   rgba(233, 229, 219, .22);
 
@@ -119,7 +120,7 @@ a { color: var(--bone); }
   font-family: var(--mono); font-size: .66rem; letter-spacing: .2em;
   text-transform: uppercase; color: var(--steel); margin-bottom: .9rem;
 }
-.hero h1 { font-size: clamp(2.2rem, 1.4rem + 5.2vw, 4.4rem); }
+.hero h1 { font-size: clamp(2.1rem, 1.4rem + 4.2vw, 3.7rem); }
 
 /* Types itself out under the club name. Reserve the line height up front
    so the rest of the hero doesn't jump as characters land. */
@@ -183,11 +184,24 @@ a { color: var(--bone); }
 .band--panel { background: var(--panel); }
 .band-head { margin-bottom: 2rem; }
 .band-head .kicker { margin-bottom: .7rem; }
-.band-head p { max-width: 58ch; color: var(--bone-dim); margin-top: .8rem; }
+.band-head p:not(.kicker) { max-width: 58ch; color: var(--bone-dim); margin-top: .8rem; }
 
-.page-head { padding-block: clamp(2rem, 1.5rem + 3vw, 3.6rem) clamp(1.4rem, 1rem + 2vw, 2.4rem); border-bottom: 1px solid var(--line); }
-.page-head h1 { font-size: clamp(2rem, 1.4rem + 3.4vw, 3.4rem); }
-.page-head p { max-width: 58ch; color: var(--bone-dim); margin-top: .9rem; }
+/* A one-word title set at hero scale reads as a slab dropped between two
+   much quieter lines, so the title comes down and the three parts sit
+   closer together as one block. The red tick repeats the brand mark. */
+.page-head {
+  padding-block: clamp(1.8rem, 1.4rem + 2.2vw, 2.9rem) clamp(1.3rem, 1rem + 1.6vw, 2.1rem);
+  border-bottom: 1px solid var(--line);
+}
+.page-head .kicker {
+  display: flex; align-items: center; gap: .55rem;
+  margin-bottom: .6rem;
+}
+.page-head .kicker::before {
+  content: ""; width: 7px; height: 7px; background: var(--red); flex: none;
+}
+.page-head h1 { font-size: clamp(1.75rem, 1.4rem + 1.7vw, 2.5rem); }
+.page-head p:not(.kicker) { max-width: 56ch; color: var(--bone-dim); margin-top: .7rem; }
 
 /* ---------- Diagram host ---------- */
 .diagram { width: 100%; }
@@ -418,7 +432,6 @@ a { color: var(--bone); }
 .lightbox { position: fixed; inset: 0; z-index: 300; display: none; place-items: center; padding: 1.5rem; background: rgba(6, 8, 11, .95); }
 .lightbox[open] { display: grid; }
 .lightbox img { max-width: min(100%, 1100px); max-height: 84vh; width: auto; }
-.lb-caption { margin-top: 1rem; text-align: center; color: var(--bone-dim); font-family: var(--mono); font-size: .76rem; }
 .lb-close, .lb-nav {
   position: absolute; display: grid; place-items: center; width: 44px; height: 44px;
   font-size: 1.4rem; line-height: 1; color: var(--bone);

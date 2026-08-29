@@ -1,5 +1,5 @@
 /* ============================================================
-   CLUB DATA — this is the only file you need to edit for
+   CLUB DATA. The only file you need to edit for
    routine updates. Everything else on the site reads from here.
    ============================================================ */
 
@@ -20,13 +20,13 @@ const CLUB = {
   /* ---- CHANGING A SINGLE MEETING ----
      Three different things can happen. Pick the right one.
 
-     1. CANCELLED — no meeting that week, next one is as normal.
+     1. CANCELLED. No meeting that week, next one is as normal.
 
             skipDates: [
               "2026-12-23"    // winter break
             ],
 
-     2. MOVED — same week, different day. Left side is the date it
+     2. MOVED. Same week, different day. Left side is the date it
         WOULD have been, right side is where it went. Do NOT also put
         it in skipDates; this replaces it.
 
@@ -34,19 +34,19 @@ const CLUB = {
               "2026-09-09": "2026-09-10"    // assembly, moved to Thursday
             },
 
-     3. EXTRA — a one-off meeting that isn't part of the pattern
+     3. EXTRA. A one-off meeting that isn't part of the pattern
         (build day before a competition, catch-up session).
 
             extraDates: [
               "2026-10-14"
             ],
 
-     Check the date against the schedule on the meetings page first —
-     a date that was never a meeting day will do nothing.
+     Check the date against the schedule on the meetings page first.
+     A date that was never a meeting day will do nothing.
 
      If the whole schedule shifts permanently (you end up meeting on
      the opposite Wednesdays from now on), don't use these. Change
-     firstMeeting to the new date instead — everything re-derives. */
+     firstMeeting to the new date instead, and everything re-derives. */
   skipDates:  [],
   reschedule: {},
   extraDates: [],
@@ -56,7 +56,7 @@ const CLUB = {
   currentUnit: "",
 
   /* The line that types itself out under the club name on the home page.
-     Home page only — it's a slogan, and it wears thin if it's everywhere.
+     Home page only. It's a slogan, and it wears thin if it's everywhere.
      Set to "" to turn the effect off. */
   tagline: "Design. Build. Test to failure.",
 
@@ -67,8 +67,9 @@ const CLUB = {
 
      photos:  filenames from the img/ folder. Use [] for none yet.
               Two show per row. If you list an odd number, the LAST one
-              runs full width as the feature — so put the best one last.
-     diagram: "truss" | "airfoil" | "printer" | "circuit" | ""
+              runs full width as the feature, so put the best one last.
+     diagram: name of an animated drawing, or "" for none.
+              The full list is in the README.
      term:    free text, shown as a label on the card.
      current: true puts it in "What we're working on" instead of
               the archive. Only mark one project current. */
@@ -80,9 +81,9 @@ const CLUB = {
       term:    "Last year",
       current: false,
       diagram: "airfoil",
-      blurb:   "We covered how a plane stays in the air — lift, drag, center of " +
-               "gravity — then built gliders out of balsa and tape and flew them " +
-               "in the hallway.",
+      blurb:   "We covered what keeps a plane in the air: lift, drag and center of " +
+               "gravity. Then we built gliders out of foam plates, wood, glue and " +
+               "duct tape, and flew them down the hallway.",
       photos:  [
         { file: "airplanes-hallway.jpg", alt: "Two club members in the school hallway holding the gliders they built from folded card and tape, with a third design in the foreground" }
       ]
@@ -94,12 +95,11 @@ const CLUB = {
       current: false,
       diagram: "truss",
       blurb:   "Teams designed and built bridges out of popsicle sticks, glue and " +
-               "tape, then added weight until they failed. The truss designs held " +
-               "up best.",
+               "tape, then added weight until they failed.",
       photos:  [
         { file: "IMG_0769.jpeg", alt: "A club member holding up their completed truss bridge" },
         { file: "bridge-build-classroom.jpg", alt: "Club members working on a popsicle-stick bridge across two desks during a build session" },
-        { file: "IMG_0822.jpeg", alt: "Two finished bridges side by side — a covered truss design and a string suspension design" }
+        { file: "IMG_0822.jpeg", alt: "Two finished bridges side by side, a covered truss design and a string suspension design" }
       ]
     }
 

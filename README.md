@@ -4,7 +4,7 @@ Website for the **Engineering Club at South Point High School**.
 
 Live at <https://sphs-engineering.site>
 
-Plain HTML, CSS and JavaScript &mdash; no build step and no frameworks. Edit a
+Plain HTML, CSS and JavaScript, with no build step and no frameworks. Edit a
 file, commit, push, and GitHub Pages publishes it about a minute later.
 
 ---
@@ -30,20 +30,20 @@ goes stale between updates. **You do not need to edit the site every two weeks.*
 
 Three different situations, three different fields. Pick the right one.
 
-**Cancelled** &mdash; no meeting that week, the site jumps to the next one:
+**Cancelled.** No meeting that week, the site jumps to the next one:
 
 ```js
 skipDates: [ "2026-12-23" ],
 ```
 
-**Moved** &mdash; same week, different day. Left side is where it *would* have
+**Moved.** Same week, different day. Left side is where it *would* have
 been, right side is where it went. Do not also add it to `skipDates`:
 
 ```js
 reschedule: { "2026-09-09": "2026-09-10" },
 ```
 
-**Extra** &mdash; a one-off that is not part of the pattern:
+**Extra.** A one-off that is not part of the pattern:
 
 ```js
 extraDates: [ "2026-10-14" ],
@@ -53,8 +53,8 @@ Moved and extra dates get sorted into the right place automatically, even if
 you move a meeting earlier. A date that was never a meeting day will not do
 anything, so check it against the schedule on the meetings page first.
 
-**If the schedule shifts permanently** &mdash; you end up meeting on the
-opposite Wednesdays from now on &mdash; do not use these. Change `firstMeeting`
+**If the schedule shifts permanently**, meaning you end up meeting on the
+opposite Wednesdays from now on, do not use these. Change `firstMeeting`
 to the new date and everything re-derives from there.
 
 At the end of the year the site stops showing dates and says so, rather than
@@ -85,8 +85,8 @@ Only mark **one** project `current: true`. Everything else falls into
 ## Adding photos
 
 Photos straight off a phone are 3&ndash;5&nbsp;MB each and make the site slow on
-cell data. **Resize to about 1400px on the long edge before committing** &mdash;
-that lands around 200&nbsp;KB. Any image editor or online resizer works.
+cell data. **Resize to about 1400px on the long edge before committing.**
+That lands around 200&nbsp;KB. Any image editor or online resizer works.
 
 Then put the filename in the project's `photos` list with a real `alt`
 description (it is what screen readers read out, and what shows if the image
@@ -105,7 +105,7 @@ Photos currently sitting unused in `img/`, ready for future pages:
 | `meetings.html` | Next meeting, full schedule, what a meeting is like |
 | `projects.html` | Project list (built from `club-data.js`) |
 | `join.html` | How to join, FAQ, contact |
-| `club-data.js` | **Schedule, projects, contacts &mdash; edit this one** |
+| `club-data.js` | **Schedule, projects, contacts. Edit this one** |
 | `diagrams.js` | The animated drawings |
 | `site.js` | Menu, dates, project rendering, photo viewer |
 | `style.css` | All styling |
@@ -138,7 +138,7 @@ Drop one into any page:
 | `gears` | Three meshing gears | Meetings |
 | `magnets` | Two magnets snapping together | Join |
 | `bolt` | A bolt turning through two plates | not used |
-| `printer` | A 3D printer building a part | not used &mdash; for when the club gets a printer |
+| `printer` | A 3D printer building a part | not used, for when the club gets a printer |
 
 Add `diagram--hero` to the class for the large version, or `diagram--band`
 for the centred mid-page size. They all stop moving for anyone who has
@@ -164,7 +164,7 @@ The site is at **sphs-engineering.site**, registered through Namecheap.
 
 The domain is pointed at GitHub by five DNS records in the Namecheap
 dashboard (four A records on `@`, one CNAME on `www`), plus the `CNAME`
-file in this repo. Do not delete that file &mdash; it is what tells GitHub
+file in this repo. Do not delete that file, it is what tells GitHub
 Pages which domain to answer on.
 
 **It has to be renewed every year or the site goes dark.** Whoever runs
@@ -173,7 +173,7 @@ the club needs to know:
 | | |
 | --- | --- |
 | Registrar | Namecheap |
-| Renews | every year &mdash; check the date in the Namecheap dashboard |
+| Renews | every year, check the date in the Namecheap dashboard |
 | Paid by | *(fill this in)* |
 
 Check the renewal price now rather than at renewal time. `.site` domains
