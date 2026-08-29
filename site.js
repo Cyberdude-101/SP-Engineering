@@ -35,6 +35,33 @@
     return Math.round((midnight(b) - midnight(a)) / 86400000);
   }
 
+  /* Minutes past midnight for a time written the friendly way in
+     club-data.js ("3:30", "4:15 PM"). With no AM/PM, anything before 8
+     is taken as afternoon — this is an after-school club, so "3:30"
+     means half three, not dawn. */
+  function clockMinutes(text) {
+    var m = String(text).match(/(\d{1,2}):(\d{2})\s*([AP]M)?/i);
+    if (!m) return null;
+
+    var hour = +m[1];
+    var mark = (m[3] || "").toUpperCase();
+
+    if (mark === "PM" && hour !== 12) hour += 12;
+    else if (mark === "AM" && hour === 12) hour = 0;
+    else if (!mark && hour < 8) hour += 12;
+
+    return hour * 60 + (+m[2]);
+  }
+
+  /* Length of a meeting, worked out from the start and end times rather
+     than written down separately — one less thing to forget to update. */
+  function meetingLength() {
+    var from = clockMinutes(CLUB.startTime);
+    var to   = clockMinutes(CLUB.endTime);
+    if (from === null || to === null || to <= from) return null;
+    return to - from;
+  }
+
   /* Build every meeting date for the year:
        1. walk the every-other-Wednesday pattern forward
        2. drop anything on skipDates
@@ -110,15 +137,19 @@
     var unit = CLUB.currentUnit
       ? '<p class="nm-unit">Currently building: <strong>' + CLUB.currentUnit + "</strong></p>"
       : "";
+    var mins = meetingLength();
 
     host.innerHTML =
       '<p class="nm-status">Next meeting &middot; ' + relative(next) + "</p>" +
       '<p class="nm-when">' + longDate(next) + "</p>" +
       '<p class="nm-where">' + CLUB.startTime + "&ndash;" + CLUB.endTime +
         " &nbsp;&middot;&nbsp; " + CLUB.room + "</p>" +
-      '<div class="nm-dim" aria-hidden="true">' +
-        "<span>" + CLUB.startTime + "</span><i></i><span>60 MIN</span><i></i><span>" + CLUB.endTime + "</span>" +
-      "</div>" + unit;
+      (mins
+        ? '<div class="nm-dim" aria-hidden="true">' +
+            "<span>" + CLUB.startTime + "</span><i></i><span>" + mins +
+            " MIN</span><i></i><span>" + CLUB.endTime + "</span>" +
+          "</div>"
+        : "") + unit;
   }
 
   /* ---------- Full schedule (meetings page) ---------- */
@@ -196,7 +227,8 @@
               "<div class='pj-grid'>" + current.map(projectCard).join("") + "</div></section>";
     } else {
       html += "<section class='pj-group'><h2>What we're working on</h2>" +
-              "<p class='pj-empty'>The first project gets picked at the first meeting.</p></section>";
+              "<p class='pj-empty'>This year's first project hasn't been decided yet. " +
+              "Come to a meeting and have a say in it.</p></section>";
     }
 
     if (archive.length) {

@@ -13,7 +13,7 @@ const CLUB = {
   firstMeeting: "2026-08-26",   // YYYY-MM-DD. First meeting of the school year.
   everyNWeeks:  2,              // Meet every other week.
   startTime:    "3:30",
-  endTime:      "4:30 PM",
+  endTime:      "4:15 PM",
   room:         "Mrs. Best's room (#105)",
   lastMeeting:  "2027-05-26",   // Stop showing dates after the year ends.
 
