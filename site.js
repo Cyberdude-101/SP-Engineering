@@ -208,7 +208,7 @@
                "<h3>" + p.title + "</h3>" +
              "</div>" +
              diagram +
-             "<p>" + p.blurb + "</p>" +
+             (p.blurb ? "<p>" + p.blurb + "</p>" : "") +
              gallery +
            "</article>";
   }

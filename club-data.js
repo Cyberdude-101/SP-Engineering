@@ -53,7 +53,7 @@ const CLUB = {
 
   /* What we are building at the moment. Shows on the home page
      and the meetings page. Set to "" if you would rather not say. */
-  currentUnit: "",
+  currentUnit: "Cardboard Automation",
 
   /* The line that types itself out under the club name on the home page.
      Home page only. It's a slogan, and it wears thin if it's everywhere.
@@ -75,6 +75,15 @@ const CLUB = {
               the archive. Only mark one project current. */
 
   projects: [
+
+    {
+      title:   "Cardboard Automation",
+      term:    "This year",
+      current: true,
+      diagram: "gears",
+      blurb:   "",
+      photos:  []
+    },
 
     {
       title:   "Wooden Airplanes",
