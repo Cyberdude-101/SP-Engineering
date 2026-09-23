@@ -81,7 +81,8 @@ const CLUB = {
       term:    "This year",
       current: true,
       diagram: "gears",
-      blurb:   "",
+      blurb:   "Each build is a box of moving parts. Cardboard gears inside the " +
+               "box turn wooden dowels, and the dowels move a design mounted on top.",
       photos:  []
     },
 
@@ -94,7 +95,7 @@ const CLUB = {
                "gravity. Then we built gliders out of foam plates, wood, glue and " +
                "duct tape, and flew them down the hallway.",
       photos:  [
-        { file: "airplanes-hallway.jpg", alt: "Two club members in the school hallway holding the gliders they built from folded card and tape, with a third design in the foreground" }
+        { file: "airplanes-hallway.jpg", alt: "Two club members in the school hallway holding the gliders they built, with a third glider in the foreground" }
       ]
     },
 

@@ -394,6 +394,32 @@ a { color: var(--bone); }
 .pj > p { color: var(--bone-dim); font-size: .95rem; }
 .pj-empty { color: var(--bone-dim); max-width: 54ch; }
 .pj-nophotos { font-family: var(--mono); font-size: .72rem; color: var(--steel); margin-top: 1rem; }
+
+/* "In progress" sits on the same line as the term label. The dot pulses
+   like a recording light; reduced-motion users get it steady. */
+.pj-status {
+  display: inline-flex; align-items: center; gap: .42rem;
+  margin-left: .9rem;
+  font-family: var(--mono); font-size: .62rem; letter-spacing: .17em;
+  text-transform: uppercase; color: var(--red-text);
+}
+.pj-status i {
+  width: 6px; height: 6px; border-radius: 50%;
+  background: currentColor;
+  animation: pj-live 1.8s ease-in-out infinite;
+}
+@keyframes pj-live { 0%, 100% { opacity: 1 } 50% { opacity: .25 } }
+
+/* Where a current project's photos will go. Dashed so it reads as a slot
+   waiting to be filled, not as something broken. */
+.pj-pending {
+  margin-top: 1.2rem;
+  padding: 2rem 1rem;
+  border: 1px dashed var(--line-2);
+  text-align: center;
+  font-family: var(--mono); font-size: .66rem; letter-spacing: .16em;
+  text-transform: uppercase; color: var(--steel);
+}
 /* Two per row, and when the count is odd the last one runs full width as
    a feature image. Works for any number: 1 is featured, 2 sit side by
    side, 3 is a pair above a feature, 4 is a plain 2x2. */

@@ -203,9 +203,17 @@
              "</button>";
     }).join("");
 
+    // A project that's still going gets an empty frame where the photos
+    // will go, so the gap reads as "not yet" rather than "missing".
     var gallery = photos
       ? '<div class="pj-shots">' + photos + "</div>"
-      : '<p class="pj-nophotos">Photos from this one are still being sorted out.</p>';
+      : p.current
+        ? '<div class="pj-pending">No photos yet</div>'
+        : '<p class="pj-nophotos">No photos yet.</p>';
+
+    var status = p.current
+      ? '<span class="pj-status"><i aria-hidden="true"></i>In progress</span>'
+      : "";
 
     var diagram = p.diagram
       ? '<div class="diagram diagram--card" data-diagram="' + p.diagram + '"></div>'
@@ -213,7 +221,7 @@
 
     return '<article class="pj">' +
              '<div class="pj-head">' +
-               '<span class="pj-term">' + p.term + "</span>" +
+               '<span class="pj-term">' + p.term + "</span>" + status +
                "<h3>" + p.title + "</h3>" +
              "</div>" +
              diagram +
