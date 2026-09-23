@@ -99,11 +99,20 @@
     return unique;
   }
 
+  /* Today's meeting stops counting as "next" once it has actually
+     finished, not at midnight. Otherwise someone checking at five
+     o'clock is told there is a meeting today and heads over. */
   function upcomingMeetings(count) {
-    var today = midnight(new Date());
-    return allMeetingDates()
-      .filter(function (d) { return d >= today; })
-      .slice(0, count);
+    var now     = new Date();
+    var today   = midnight(now);
+    var endsAt  = clockMinutes(CLUB.endTime);
+    var nowMins = now.getHours() * 60 + now.getMinutes();
+
+    return allMeetingDates().filter(function (d) {
+      if (d > today) return true;
+      if (d < today) return false;
+      return endsAt === null || nowMins < endsAt;
+    }).slice(0, count);
   }
 
   function longDate(d) {
